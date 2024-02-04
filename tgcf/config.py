@@ -51,8 +51,8 @@ class PastSettings(BaseModel):
     @validator("delay")
     def validate_delay(cls, val):  # pylint: disable=no-self-use,no-self-argument
         """Check if the delay used by user is values. If not, use closest logical values."""
-        if val not in range(0, 900):
-            logging.warning("delay must be within 0 to 900 seconds")
+        if val not in range(0, 901):
+            logging.warning("delay must be within 0 to 901 seconds")
             if val > 900:
                 val = 900
             if val < 0:

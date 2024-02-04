@@ -46,15 +46,15 @@ class PastSettings(BaseModel):
     """Configuration for past mode."""
 
     # pylint: disable=too-few-public-methods
-    delay: int = 900
+    delay: int = 3200
 
     @validator("delay")
     def validate_delay(cls, val):  # pylint: disable=no-self-use,no-self-argument
         """Check if the delay used by user is values. If not, use closest logical values."""
-        if val not in range(0, 901):
+        if val not in range(0, 3201):
             logging.warning("delay must be within 0 to 901 seconds")
-            if val > 900:
-                val = 900
+            if val > 3200:
+                val = 3200
             if val < 0:
                 val = 0
         return val
